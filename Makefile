@@ -477,8 +477,7 @@ python-bindings: tator-image
 .PHONY: r-bindings
 r-bindings: tator-image
 	mkdir -p /tmp/tator-r-$(GIT_VERSION)
-	rm -rf scripts/packages/tator-r/tator/openapi/tator
-	rm -rf scripts/packages/tator-r/tator/openapi/docs
+	rm -rf scripts/packages/tator-r/docs
 	docker run -it --rm -e DJANGO_SECRET_KEY=asdf -e ELASTICSEARCH_HOST=127.0.0.1 -e TATOR_DEBUG=false -e TATOR_USE_MIN_JS=false $(DOCKERHUB_USER)/tator_online:$(GIT_VERSION) python3 manage.py getschema > scripts/schema.yaml
 	cd scripts
 	python3 remove_oneof.py

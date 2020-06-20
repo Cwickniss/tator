@@ -483,7 +483,7 @@ r-bindings: tator-image
 	cd scripts
 	python3 remove_oneof.py
 	cd ..
-	docker run -it --rm -v $(shell pwd):/pwd -v /tmp:/out openapitools/openapi-generator-cli:v4.3.1 generate -c /pwd/scripts/packages/r-config.json -i /pwd/scripts/schema.yaml -g r -o /out/tator-r-$(GIT_VERSION) -t /pwd/scripts/packages/tator-r/templates
+	docker run -it --rm -v $(shell pwd):/pwd -v /tmp:/out openapitools/openapi-generator-cli:v4.3.1 generate -c /pwd/scripts/packages/r-config.json -i /pwd/scripts/schema.yaml -g r -o /out/tator-r-$(GIT_VERSION)
 
 	rm scripts/schema.yaml
 	cp -r /tmp/tator-r-$(GIT_VERSION)/R/* scripts/packages/tator-r/R/.
